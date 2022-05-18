@@ -1,0 +1,46 @@
+/* Create table about the people and what they do here */
+
+Movie stars: What movies are they in? Are they married to each other?
+
+create table Star_Info(
+id integer primary key autoincrement,
+name TEXT,
+age INTEGER);
+
+INSERT INTO Star_Info (name,age) VALUES ("Brad Pitt", 50);
+INSERT INTO Star_Info (name,age) VALUES ("John Smith", 25);
+INSERT INTO Star_Info (name,age) VALUES ("Angelina Jolie", 47);
+INSERT INTO Star_Info (name,age) VALUES ("Jane Doe", 27);
+INSERT INTO Star_Info (name,age) VALUES ("Blake Lively", 43);
+INSERT INTO Star_Info (name,age) VALUES ("Ryan Reynolds", 42);
+
+create table Movie(
+star_id INTEGER,
+title TEXT,
+rating REAL);
+
+INSERT INTO Movie (star_id,title,rating) VALUES (1, "Fury", 4.1);
+INSERT INTO Movie (star_id,title,rating) VALUES (2, "Light Speed", 3.2);
+INSERT INTO Movie (star_id,title,rating) VALUES (3, "Tombraider", 4.4);
+INSERT INTO Movie (star_id,title,rating) VALUES (4, "Bad Movie", 2.3);
+INSERT INTO Movie (star_id,title,rating) VALUES (5, "Accepted", 3.9);
+INSERT INTO Movie (star_id,title,rating) VALUES (6, "Deadpool", 4.9);
+
+create table Married(
+star1_id INTEGER,
+star2_id INTEGER);
+
+INSERT INTO Married (star1_id,star2_id) VALUES (1,3);
+INSERT INTO Married (star1_id,star2_id) VALUES (2,4);
+INSERT INTO Married (star1_id,star2_id) VALUES (5,6);
+
+SELECT Star_Info.name, Movie.title, Movie.rating FROM Star_Info
+    JOIN Movie
+        ON Star_Info.id = Movie.star_id;
+        
+
+SELECT x.name, y.name FROM Married
+    JOIN Star_Info x
+        ON Married.Star1_id = x.id
+    JOIN Star_Info y
+        ON Married.Star2_id = y.id
