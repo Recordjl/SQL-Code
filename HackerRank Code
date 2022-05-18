@@ -122,3 +122,22 @@ SELECT CASE
     END
 FROM BST
 ORDER BY N
+
+
+
+
+/* New Companies */
+Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy: 
+Founder -> Lead Manager -> Senior Manager -> Manager -> Employee
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+
+SELECT A.company_code, A.founder, 
+    COUNT(DISTINCT E.lead_manager_code), 
+    COUNT(DISTINCT E.senior_manager_code), 
+    COUNT(DISTINCT E.manager_code), 
+    COUNT(DISTINCT E.employee_code)  
+FROM Company A
+    INNER JOIN Employee E
+    ON A.company_code = E.company_code
+GROUP BY A.company_code, A.founder
+ORDER BY A.company_code;
