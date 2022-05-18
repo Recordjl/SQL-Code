@@ -1,0 +1,17 @@
+SELECT *,
+    CASE
+        WHEN count(P) = Null THEN "Root"
+        WHEN count(P) > 0 THEN "Leaf"
+    ELSE "Leaf"
+END as "Node_Type"
+FROM BST
+LEFT JOIN 
+ORDER BY N
+
+SELECT BST.N, CASE
+    WHEN BST.P IS NULL THEN 'Root' 
+    WHEN Parents.P IS NULL THEN 'Leaf'
+    ELSE 'Inner' END
+FROM BST
+LEFT JOIN (SELECT DISTINCT P FROM BST ) Parents on Parents.P=BST.N
+ORDER BY BST.N 
