@@ -1,0 +1,21 @@
+CREATE TABLE Card_Store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, rarity TEXT);
+
+INSERT INTO Card_Store VALUES (1, "Pokemon 1", 4, 1.38, "Common");
+INSERT INTO Card_Store VALUES (2, "Pokemon 2", 2, 4.68, "Rare");
+INSERT INTO Card_Store VALUES (3, "Pokemon 3", 3, 2.38, "Uncommon");
+INSERT INTO Card_Store VALUES (4, "Pokemon 4", 3, 2.13, "Common");
+INSERT INTO Card_Store VALUES (5, "Yugioh 1", 1, 6.68, "Super Rare");
+INSERT INTO Card_Store VALUES (6, "Yugioh 2", 5, 2.56, "Common");
+INSERT INTO Card_Store VALUES (7, "Yugioh 3", 1, 4.01, "Rare");
+INSERT INTO Card_Store VALUES (8, "Yugioh 4", 2, 3.28, "Uncommon");
+INSERT INTO Card_Store VALUES (9, "Digimon 1", 4, 1.98, "Common");
+INSERT INTO Card_Store VALUES (10, "Digimon 2", 6, 2.06, "Common");
+INSERT INTO Card_Store VALUES (11, "Digimon 3", 2, 4.21, "Rare");
+INSERT INTO Card_Store VALUES (12, "Digimon 4", 3, 3.15, "Uncommon");
+INSERT INTO Card_Store VALUES (13, "Magic 1", 5, 2.16, "Common");
+INSERT INTO Card_Store VALUES (14, "Magic 2", 1, 4.21, "Super Rare");
+INSERT INTO Card_Store VALUES (15, "Magic 3", 3, 3.02, "Uncommon");
+
+SELECT * FROM Card_Store ORDER BY price;
+
+SELECT rarity, AVG(price) FROM Card_Store GROUP BY rarity;
